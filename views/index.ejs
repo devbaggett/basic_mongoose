@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dojo_survey_style.css') }}">
+</head>
+<body>
+	<div style="text-align: center">
+		<div style="border: 1px solid black; display: inline-block; padding: 10px; text-align: left; margin-top: 100px;">
+			<div>
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+					</tr>
+					<% for (var i in users){ %>
+					<tr>
+						<td><%= users[i].name %></td>
+						<td><%= users[i].age %></td>
+					</tr>
+					<% } %>
+				</table>
+				<hr>
+			</div>
+		    <form action="/users" method="POST">
+			    <div>
+			        <label>Name: </label>
+			        <input type="text" name="name">
+			   	</div>
+			   	<div>
+			        <label>Age: </label>
+			        <input type="number" name="age">
+			   	</div>			
+		        <div id="submit_button">
+		        	<input type="submit" value="Submit">
+		        </div>
+		    </form>
+		</div>
+	</div>
+</body>
+</html>
